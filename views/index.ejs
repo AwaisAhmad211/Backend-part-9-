@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="stylesheet" href="./stylesheets/index.css">
+</head>
+<body>
+    <form action="/create" method="post" class="flex gap-3">
+        <input type="text" name="name" placeholder="Enter file name" required >
+        <textarea name="details" placeholder="Enter youe file details" ></textarea>
+        <input type="submit" placeholder="create">
+    </form>
+    <div class="tasks">
+        <% if(files.length > 0 ) { %>
+         <%  files.forEach((val)=>{ %>
+                <div class="task">
+                    <h3> <%= val %> </h3>
+                    <div class="a">
+                        <a href="/files/<%= val %>">Read more</a>
+                        <a href="/edit/<%= val %>">Edit file name</a>
+                    </div>
+                </div>
+           <% }) %>
+       <%  } else { %>
+        <h3>No tasks yet</h3>
+      <% } %>
+       
+    </div>
+</body>
+</html>
